@@ -1,41 +1,71 @@
 "use client";
 
-import React from 'react';
-import { useInView } from 'react-intersection-observer';
+import React, { useRef, useState, useEffect } from "react";
+
+const useInView = ({ threshold = 0.3, triggerOnce = true }) => {
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          if (triggerOnce) observer.unobserve(entry.target);
+        } else if (!triggerOnce) {
+          setInView(false);
+        }
+      },
+      { threshold }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [threshold, triggerOnce]);
+
+  return { ref, inView };
+};
 
 const timelineData = [
   {
     id: 1,
-    title: 'Annual Performance',
-    image: '/timeline/earlydays.jpg',
-    description: 'Started my dance journey through ballet, learning at a local studio.',
+    title: "Annual Performance",
+    image: "/timeline/earlydays.jpg",
+    description: "Started my dance journey through ballet, learning at a local studio.",
   },
   {
     id: 2,
-    title: 'Won a Dance Competition',
-    video: 'https://www.youtube.com/embed/VzHSO9Um7tk',
-    description: 'Won 2nd place in a contemporary dance competition.',
+    title: "Won a Dance Competition",
+    video: "https://www.youtube.com/embed/VzHSO9Um7tk",
+    description: "Won 2nd place in a contemporary dance competition.",
   },
   {
     id: 3,
-    title: 'Another Year End Performance',
-    image: '/timeline/cba.jpg',
+    title: "Another Year End Performance",
+    image: "/timeline/cba.jpg",
     description:
-      'Ended 2016 successfully passing the Royal Academy of Dance (RAD) Intermediate Examination, marking a significant milestone in my dance journey. As part of the vocational training syllabus, this achievement reflects dedication to technical precision, artistry, and performance skills. The Intermediate Level is widely recognized as a foundational qualification for aspiring professional dancers and serves as a gateway to advanced vocational training and professional opportunities in the world of dance.',
+      "Ended 2016 successfully passing the Royal Academy of Dance (RAD) Intermediate Examination, marking a significant milestone in my dance journey. As part of the vocational training syllabus, this achievement reflects dedication to technical precision, artistry, and performance skills. The Intermediate Level is widely recognized as a foundational qualification for aspiring professional dancers and serves as a gateway to advanced vocational training and professional opportunities in the world of dance.",
   },
   {
     id: 4,
-    title: 'Classical Singing Performance',
-    image: '/timeline/singing.jpg',
+    title: "Classical Singing Performance",
+    image: "/timeline/singing.jpg",
     description:
-      'Decided to take up hindustani vocal classes and sang for the first time in front of an audience! Within my first year of learning! Solo!',
+      "Decided to take up hindustani vocal classes and sang for the first time in front of an audience! Within my first year of learning! Solo!",
   },
   {
     id: 5,
-    title: 'Ghunghroo Ceremony',
-    image: '/timeline/ghunghrooceremony.png',
+    title: "Ghunghroo Ceremony",
+    image: "/timeline/ghunghrooceremony.png",
     description:
-      'Receiving my ghungroos (ankle bells) after a year of learning Kathak. The ghungroo ceremony is an event where a dancer receives ghungroos, and is honored for their commitment to their art and personal development, considered a milestone in the study of Kathak dance.',
+      "Receiving my ghungroos (ankle bells) after a year of learning Kathak. The ghungroo ceremony is an event where a dancer receives ghungroos, and is honored for their commitment to their art and personal development, considered a milestone in the study of Kathak dance.",
   },
 ];
 
@@ -62,7 +92,7 @@ const TimelineEvent = ({ event }) => {
     <div
       ref={ref}
       className={`relative w-4/5 mb-6 p-6 bg-primary-50 dark:bg-primary-900 bg-opacity-50 dark:bg-opacity-30 rounded-lg shadow-lg transition-transform transform ${
-        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       {event.video ? (
