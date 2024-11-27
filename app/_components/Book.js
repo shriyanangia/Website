@@ -52,14 +52,6 @@ const BookComponent = ({ book }) => {
 
   return (
     <div style={{ cursor: "pointer" }} onClick={handleClick}>
-      {/* <Book
-        style={{ width: 400, height: 500 }}
-        bookCovers={{
-          front: coverUrl,
-          back: coverUrl, // Optionally, use a different image for the back
-          spine: coverUrl, // Optionally, use a different image for the spine
-        }}
-      /> */}
 
         {coverUrl ? (
         <Image
