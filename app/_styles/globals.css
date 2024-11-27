@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid var(--primary-border); /* Custom property */
+    border-right-color: var(--primary-border-right);
+    animation: rotate 1s infinite linear;
+  }
+
+  .spinner-mini {
+    margin: 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid var(--primary-border);
+    border-right-color: transparent;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+/* Default light mode variables */
+:root {
+  --primary-border: #FFC8BA; /* Replace with your actual light mode colors */
+  --primary-border-right: #886874;
+}
+
+/* Dark mode variables */
+html.dark {
+  --primary-border: #676561; /* Replace with your actual dark mode colors */
+  --primary-border-right: #E5B8B0;
+}
