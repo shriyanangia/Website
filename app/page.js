@@ -16,7 +16,7 @@ export default function Page() {
         fill
         placeholder="blur"
         quality={80}
-        className="object-cover object-top dark:hidden"
+        className="object-cover object-center dark:hidden"
         alt="background picture of stationery on a table"
       />
 <Image
@@ -24,7 +24,7 @@ export default function Page() {
         fill
         placeholder="blur"
         quality={80}
-        className="object-cover object-top hidden dark:block"
+        className="object-cover object-center hidden dark:block"
         alt="background picture of stationery on a table"
       />
 </>

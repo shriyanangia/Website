@@ -32,12 +32,14 @@
 
 /* Default light mode variables */
 :root {
-  --primary-border: #FFC8BA; /* Replace with your actual light mode colors */
+  --primary-border: #FFC8BA;
   --primary-border-right: #886874;
 }
 
 /* Dark mode variables */
 html.dark {
-  --primary-border: #676561; /* Replace with your actual dark mode colors */
+  --primary-border: #676561; 
   --primary-border-right: #E5B8B0;
 }
+
+

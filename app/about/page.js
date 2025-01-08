@@ -12,10 +12,10 @@ export const metadata = {
 export default async function Page() {
 
   return (
-    <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
       <div className="col-span-3">
-        <h1 className="text-4xl mb-10 dark:text-accent-400 text-accent-600 font-medium">
-          Welcome 🌸
+        <h1 className="text-4xl mb-10 dark:text-accent-400 text-accent-600 font-medium flex items-center">
+          Welcome&nbsp;<span>🌸</span>
         </h1>
 
         <div className="space-y-8">
@@ -23,8 +23,8 @@ export default async function Page() {
             Although this site originally began as a simple portfolio, I wanted it to evolve into something much more personal.
           </p>
           <p>
-            Beyond showcasing my professional work and experiences, this space is a reflection of who I am—my passions, my creative journey, and the things that inspire me. 
-            It&apos;s a place where I can share what I&apos;m most proud of, whether that&apos;s in my career, my hobbies, or my personal projects.
+            Beyond showcasing my professional work and experiences, this space is a reflection of who I am—my passions, creative journey, and the things that inspire me. 
+            It&apos;s a place where I can share what I&apos;m proud of, whether that&apos;s in my career, hobbies, or personal projects.
           </p>
           <p>
             This is a glimpse into the person behind the work, and I hope it resonates with you. I&apos;d love to connect, so please don&apos;t hesitate to reach out!
@@ -67,7 +67,7 @@ export default async function Page() {
           <div>
             <Link
               href="/work"
-              className="inline-block mt-4 dark:bg-accent-800 bg-accent-200 px-8 py-5 dark:text-primary-100 text-primary-900 text-lg font-semibold hover:dark:bg-accent-600 over:bg-accent-400 transition-all"
+              className="inline-block mt-4 dark:bg-accent-800 bg-accent-200 px-8 py-5 text-primary-950 text-lg font-semibold hover:dark:bg-accent-600 over:bg-accent-400 transition-all"
             >
               Back to Projects
             </Link>
@@ -81,74 +81,48 @@ export default async function Page() {
           Interests
         </h2>
 
-        <div className="grid grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+  {/* Performing Arts */}
+  <Link href="about/interests/performing-arts" className="relative aspect-square group">
+    <Image
+      src="/performing-arts.jpg"
+      alt="Performing Arts"
+      fill
+      className="object-cover rounded-lg transition-all group-hover:opacity-80"
+    />
+    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
+      Performing Arts
+    </div>
+  </Link>
 
-             {/* Performing Arts */}
-          <Link href="about/interests/performing-arts" className="relative aspect-square group">
-            <Image
-              src="/performing-arts.jpg"
-              alt="Performing Arts"
-              fill
-              className="object-cover rounded-lg transition-all group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
-              Performing Arts
-            </div>
-          </Link>
+  {/* Literature */}
+  <Link href="about/interests/literature" className="relative aspect-square group">
+    <Image
+      src="/literature.jpg"
+      alt="Literature"
+      fill
+      className="object-cover rounded-lg transition-all group-hover:opacity-80"
+    />
+    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
+      Literature
+    </div>
+  </Link>
 
-          {/* Literature */}
-          <Link href="about/interests/literature" className="relative aspect-square group">
-            <Image
-              src="/literature.jpg"
-              alt="Literature"
-              fill
-              className="object-cover rounded-lg transition-all group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
-              Literature
-            </div>
-          </Link>
+  {/* Visual Arts */}
+  <Link href="about/interests/visual-arts" className="relative aspect-square group">
+    <Image
+      src="/visual-arts.jpg"
+      alt="Visual Arts"
+      fill
+      className="object-cover rounded-lg transition-all group-hover:opacity-80"
+    />
+    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
+      Visual Arts
+    </div>
+  </Link>
+</div>
 
-          {/* Travel/Outdoorsie Stuff */}
-          {/* <Link href="about/interests/travel" className="relative aspect-square group">
-            <Image
-              src="/travel.jpg"
-              alt="Travel & Outdoors"
-              fill
-              className="object-cover rounded-lg transition-all group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
-              Travel/Outdoors
-            </div>
-          </Link> */}
 
-          {/* Visual Arts */}
-          <Link href="about/interests/visual-arts" className="relative aspect-square group">
-            <Image
-              src="/visual-arts.jpg"
-              alt="Visual Arts"
-              fill
-              className="object-cover rounded-lg transition-all group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
-              Visual Arts
-            </div>
-          </Link>
-
-              {/* Film/TV */}
-              {/* <Link href="about/interests/film" className="relative aspect-square group">
-            <Image
-              src="/film.jpg" 
-              alt="Film and TV"
-              fill
-              className="object-cover rounded-lg transition-all group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 text-white font-semibold text-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all">
-              Film/TV
-            </div>
-          </Link> */}
-
-        </div>
       </div>
     </div>
   );
