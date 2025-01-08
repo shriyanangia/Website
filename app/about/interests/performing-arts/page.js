@@ -49,7 +49,7 @@ const timelineData = [
   {
     id: 3,
     title: "Another Year End Performance",
-    image: "/timeline/cba.jpg",
+    image: "/timeline/cba.JPG",
     description:
       "Ended 2016 successfully passing the Royal Academy of Dance (RAD) Intermediate Examination, marking a significant milestone in my dance journey. As part of the vocational training syllabus, this achievement reflects dedication to technical precision, artistry, and performance skills. The Intermediate Level is widely recognized as a foundational qualification for aspiring professional dancers and serves as a gateway to advanced vocational training and professional opportunities in the world of dance.",
   },
