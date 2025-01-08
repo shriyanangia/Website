@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const project = await getProject((await params).projectID);
   return (
-    <div className="max-w-6xl mx-auto mt-8">
+    <div className="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
         <Suspense fallback={<Spinner/>}>
 
             <Project project={project} />
