@@ -22,13 +22,13 @@ async function BookList ({read})
     console.log(displayedBooks)
 
     return (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12 xl:gap-14">
         {displayedBooks.map((book) => (
           <BookComponent book={book} key={book.id} />
         ))}
       </div>
-
-    )
+    );
+    
 
 }
 

@@ -62,7 +62,7 @@ const BookComponent = ({ book }) => {
         className="object-cover rounded-lg transition-all group-hover:opacity-80"
       />
       ) : (
-        <div>Loading cover...</div> // Show loading message or placeholder
+        <div>Book Not Found</div> // Show loading message or placeholder
       )}
 
 
@@ -71,30 +71,44 @@ const BookComponent = ({ book }) => {
         <>
           {/* Overlay to blur background */}
           <div
-            className="fixed inset-0 bg-black opacity-50 z-10"
+            className="fixed inset-0 bg-primary-50 dark:bg-primary-950 opacity-50 z-10"
             onClick={closeModal} // Close modal when clicking outside
           ></div>
 
 <div
-            className="fixed inset-0 flex items-center justify-center z-20"
-            onClick={handleModalClick} // Prevent closing the modal when clicking inside
-          >
+  className="fixed inset-0 flex items-center justify-center z-20"
+  onClick={handleModalClick} // Prevent closing the modal when clicking inside
+>
+  <div
+    className="bg-primary-950 dark:bg-primary-50 p-6 rounded-lg shadow-lg w-[400px] h-[500px] overflow-y-auto"
+  >
+    <h3 className="font-semibold text-primary-100 dark:text-primary-900 text-xl mb-3">
+      {bookAttributes?.title}
+    </h3>
+    <p className="text-primary-100 dark:text-primary-900"> 
+      <strong>Authors:</strong> {bookAttributes?.authors?.join(", ")}
+    </p>
+    <p className="text-primary-200 dark:text-primary-900">
+      <strong>Publisher:</strong> {bookAttributes?.publisher}
+    </p>
+    <p className="text-primary-200 dark:text-primary-900">
+      <strong>Language:</strong> {bookAttributes?.language}
+    </p>
+    <p className="text-primary-200 dark:text-primary-900">
+      <strong>Categories:</strong> {bookAttributes?.categories?.join(", ")}
+    </p>
+    <p className="text-primary-200 dark:text-primary-900">
+      <strong>Description:</strong> {bookAttributes?.description}
+    </p>
+    <button
+      onClick={closeModal}
+      className="mt-4 py-2 px-4 rounded bg-accent-500 text-primary-900 text-lg font-semibold hover:bg-accent-600 transition-all"
+    >
+      Close
+    </button>
+  </div>
+</div>
 
-            <div className="bg-primary-950 p-6 rounded-lg shadow-lg w-[1000px] max-w-full">
-              <h3 className="font-semibold text-primary-100 text-xl mb-3">{bookAttributes?.title}</h3>
-              <p><strong>Authors:</strong> {bookAttributes?.authors?.join(", ")}</p>
-              <p><strong>Publisher:</strong> {bookAttributes?.publisher}</p>
-              <p><strong>Language:</strong> {bookAttributes?.language}</p>
-              <p><strong>Categories:</strong> {bookAttributes?.categories?.join(", ")}</p>
-              <p><strong>Description:</strong> {bookAttributes?.description}</p>
-              <button
-                onClick={closeModal}
-                className="mt-4 py-2 px-4 rounded bg-accent-500 text-primary-100 text-lg font-semibold hover:bg-accent-600 transition-all"
-              > 
-                Close
-              </button>
-            </div>
-          </div>
         </>
       )}
 
