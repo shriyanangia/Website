@@ -51,17 +51,12 @@ const Avatar = (props) => {
       };
     }
 }, [actions, wavingAnimation]);
-    
-    //   useEffect(() => {
-    //     Object.values(materials).forEach((material) => {
-    //       material.wireframe = wireframe;
-    //     });
-    //   }, [wireframe]);
+  
 
   return (
     <group {...props} ref={group} dispose={null}>
         <group rotation-x={-Math.PI / 2}>
-      <primitive object={nodes.Hips} scale={2}/>
+      <primitive object={nodes.Hips} scale={4}/>
       <skinnedMesh
         name="EyeLeft"
         geometry={nodes.EyeLeft.geometry}
@@ -134,7 +129,7 @@ const AvatarCanvas = ({ icon }) => {
       // fallback={<CanvasLoader />}
       >
         <OrbitControls enableZoom={false} />
-        <group position-y={-1}>
+        <group position-y={-2.7}>
         <Avatar />
       </group>
       <ambientLight intensity={3}/>

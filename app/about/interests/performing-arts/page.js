@@ -58,7 +58,7 @@ const timelineData = [
     title: "Classical Singing Performance",
     image: "/timeline/singing.jpg",
     description:
-      "Decided to take up hindustani vocal classes and sang for the first time in front of an audience! Within my first year of learning! Solo!",
+      "Decided to take up hindustani vocal classes and sang for the first time in front of an audience! Within my first year of learning!",
   },
   {
     id: 5,
