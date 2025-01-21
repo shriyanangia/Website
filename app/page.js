@@ -1,11 +1,10 @@
 import Image from "next/image";
 import bg from "@/public/bg.png";
 import bgdark from "@/public/bgdark.png";
-import {motion} from "framer-motion"
-import { ComputersCanvas } from "./_components/canvas";
 import Link from 'next/link'
 import { SocialIcon } from "react-social-icons";
 import AvatarCanvas from "./_components/canvas/Avatar";
+// import {motion} from "framer-motion"
 
 //each of the pages in a Next.js application is a server component - pages always need to be server components
 export default function Page() {
@@ -37,7 +36,7 @@ export default function Page() {
       <div className="lg:w-1/2 flex flex-col space-y-4">
         {/* Title */}
         <h1 className="text-5xl text-center text-primary-950 dark:text-primary-50 font-semibold tracking-tight">
-          Hi, I'm Shriya
+          Hi, I`&apos;`m Shriya
         </h1>
         <h2 className="text-center">
           A full stack front-end developer
