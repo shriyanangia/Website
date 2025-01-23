@@ -36,10 +36,10 @@ export default function Page() {
       <div className="lg:w-1/2 flex flex-col space-y-4">
         {/* Title */}
         <h1 className="text-5xl text-center text-primary-950 dark:text-primary-50 font-semibold tracking-tight">
-          Hi, I`&apos;`m Shriya
+          Hi, I&apos;m Shriya
         </h1>
         <h2 className="text-center">
-          A full stack front-end developer
+          A front-end software engineer
         </h2>
 
         {/* Resume Button */}
