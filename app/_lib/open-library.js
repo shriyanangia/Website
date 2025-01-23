@@ -1,10 +1,18 @@
 import axios from 'axios';
 
 const GOOGLE_BOOKS_API_BASE = 'https://www.googleapis.com/books/v1/volumes';
+const GOOGLE_BOOKS_API_KEY = process.env.GOOGLE_BOOKS_KEY;
 
 export async function fetchBookByISBN(isbn) {
   try {
-    const response = await axios.get(`${GOOGLE_BOOKS_API_BASE}?q=isbn:${isbn}`);
+    // Construct the API request URL
+    const response = await axios.get(GOOGLE_BOOKS_API_BASE, {
+      params: {
+        q: `isbn:${isbn}`,
+        key: GOOGLE_BOOKS_API_KEY,
+      },
+    });
+    
     const book = response.data.items?.[0]; // Check if there's a matching book
     if (book) {
       return {
